@@ -98,6 +98,7 @@ nav{
   display: grid;
   align-content: start;
   color: #353567;
+  border: none;
 }
 
 .title {
@@ -112,27 +113,18 @@ nav{
 
 .save-button {
   height: 45px;
-  background-color: #353567;
+  background-color: #5356A4;
   color: #FFFFFF;
-}
-
-form {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border: solid;
+  border: 1px;
+  border-color: #353567;
 }
 
 .search{
   display: grid;
   grid-template-columns: 10% 90%;
-}
-
-.search>button{
-  /* height: 100;
-  width: 10%; */
-  /* align-items: center; */
-  background-color: #353567;
+  border: 1px;
+  border-color: #353567;
+  height: 75%;
 }
 
 .search>.text {
@@ -142,8 +134,14 @@ form {
   justify-content: flex-end;
 }
 
+form {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+}
 
-.search>button,
+.search>img,
 .search>input{
   padding: 0;
   margin: 0;
