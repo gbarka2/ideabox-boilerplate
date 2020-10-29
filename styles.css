@@ -10,13 +10,14 @@
 
 header {
   margin-left: 2%;
-
+  background-color: #1F1F3D;
 }
 
 main {
   display: grid;
   grid-row: 1 / span 2;
   grid-column: 2 / span 4;
+  background-color: #A9AAD2;
   /* grid-auto-rows: 35%; */
 
 }
@@ -30,9 +31,27 @@ section {
 }
 
 article{
-  height: 30vh;
-  width: 25vw;
+  height: 60%;
+  width: 55%;
+  display: grid;
+  grid-template-rows: 15% 70% 15%;
   border: solid;
+  margin: 5%;
+}
+
+.title-body>h3{
+  margin: 0;
+  color: #1F1E3D;
+}
+
+.title-body>p{
+  margin: 0;
+  color: #1F1F3D;
+}
+
+.comment-bar>h4{
+  margin: 0;
+  padding-left: 2%;
 }
 
 /* Add div class name for styling/color */
@@ -49,17 +68,22 @@ nav{
 }
 
 .starred-button {
-  width: 175px;
+  width: 70%;
+  height: 50%;
   margin-bottom: 5%;
   margin-top: 5%;
   margin-left: 2%;
   margin-right: 2%;
+  border-color: #353567;
+  color: #E9E9F3;
+  background-color: #5356A4;
 }
 
 .idea-images {
-  height: 5%;
-  width: 5%;
+  height: 100%;
+  width: 100%;
   background-color: #1F1F3D;
+  border-color: #1F1F3D;
 }
 
 .search-image{
@@ -72,6 +96,7 @@ nav{
 .body{
   display: grid;
   align-content: start;
+  color: #353567;
 }
 
 .title {
@@ -86,6 +111,8 @@ nav{
 
 .save-button {
   height: 45px;
+  background-color: #353567;
+  color: #FFFFFF;
 }
 
 form {
@@ -114,11 +141,58 @@ form {
   justify-content: flex-end;
 }
 
-article {
-  grid-gap: 10%
-}
+
 .search>button,
 .search>input{
   padding: 0;
   margin: 0;
+}
+
+.small-button{
+  height: 20px;
+  width: 20px;
+  padding: 0;
+}
+
+.icon-bar{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1F1F3D;
+}
+
+.comment-bar{
+  display: grid;
+  /* grid-auto-columns: auto auto; */
+  grid-template-columns: 10% 90%;
+  align-items: center;
+  background-color: #3536A5;
+}
+
+.title-body{
+  display: grid;
+  grid-template-rows: 25% 75%;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #FFFFFF;
+}
+
+.grid-item-3{
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  justify-items: center;
+  grid-gap: 5%;
+  background-color: #EAEAF4;
+}
+
+h4,
+h1{
+  color: #FFFFFF;
+}
+
+h2{
+  color: #5356A4;
 }
