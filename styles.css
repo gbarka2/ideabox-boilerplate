@@ -111,6 +111,10 @@ nav{
   grid-template-rows: 20% 80%;
 }
 
+.form-entries {
+  border-radius: 5px;
+}
+
 .save-button {
   height: 45px;
   background-color: #5356A4;
@@ -122,29 +126,15 @@ nav{
 .search{
   display: grid;
   grid-template-columns: 10% 90%;
-  border: 1px;
+  border: 2px;
   border-color: #353567;
   height: 75%;
-}
-
-.search>.text {
-  /* height: 30px; */
-  /* width: 90%; */
-  align-items: center;
-  justify-content: flex-end;
 }
 
 form {
   display: grid;
   align-items: center;
   justify-content: center;
-  border: solid;
-}
-
-.search>img,
-.search>input{
-  padding: 0;
-  margin: 0;
 }
 
 .small-button{
