@@ -16,3 +16,18 @@ function clearEntries() {
     body.value = null;
   }
 }
+
+/*
+When title and body are null;
+disable button === changing color
+
+if (title.value = "" && body.value = "") {
+  enable the saveButton
+  fire the clearEntries()
+  fire the dieabox creation function()
+}
+
+when the cursor is hovering over
+change cursor icon
+
+*/
