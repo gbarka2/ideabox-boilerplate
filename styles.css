@@ -39,7 +39,8 @@ nav {
   height: 2.5em;
   margin: 5% 5% 2% 5%;
   font-size: 2.2em;
-  border-color: #353567;
+  border: #353567;
+  border-radius: 2px;
   color: #E9E9F3;
   background-color: #5356A4;
 }
@@ -67,7 +68,12 @@ form {
   display: grid;
   align-content: start;
   color: #353567;
-  border: none;
+}
+
+#title,
+#body {
+  border: 1px solid #5356A4;
+  border-radius: 4px;
 }
 
 .title {
@@ -82,10 +88,6 @@ form {
   grid-template-rows: 20% 80%;
 }
 
-.form-entries {
-  border-radius: 5px;
-}
-
 .search-image {
   height: 88%;
   width: 88%;
@@ -93,12 +95,8 @@ form {
   border: 1px solid #353567;
   padding: 1px;
   border-color: #353567;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.search-field {
-  border: 1px solid #353567;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 .search {
@@ -116,14 +114,14 @@ form {
   margin-bottom: 2%;
   border: 1px;
   border-color: #353567;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 1.2em;
 }
 
 .search-field {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-color: #353567;
+  border: 1px solid #353567;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .grid-item-3 {
@@ -144,6 +142,7 @@ form {
   grid-template-rows: 15% 70% 15%;
   border: 1px solid #6E646B;
   margin: 5%;
+  background-color: #FFFFFF;
 }
 
 .idea-images {
@@ -169,7 +168,6 @@ form {
   padding-bottom: 8%;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: #FFFFFF;
 }
 
 .title-body>h3,
