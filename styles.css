@@ -131,11 +131,12 @@ form {
   justify-items: center;
   grid-gap: 5%;
   background-color: #EAEAF4;
+  overflow: scroll;
 }
 
 .idea-box {
-  height: 60%;
-  width: 55%;
+  height: 18em;
+  width: 15em;
   display: grid;
   grid-template-rows: 15% 70% 15%;
   border: 1px solid #6E646B;
@@ -180,7 +181,7 @@ p {
 
 .comment-bar {
   display: grid;
-  grid-template-columns: 7% 93%;
+  grid-template-columns: 15% 85%;
   align-items: center;
   background-color: #3536A5;
   border-top: 1px solid #6E646B;
