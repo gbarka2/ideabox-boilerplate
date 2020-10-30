@@ -8,10 +8,6 @@
 </head>
 
 <body class="parent">
-  <!-- we know we need 3 sections
-  <header> => h1, <nav> => h2, show button
-<main> => form, inputs, labels, save button, search field, search button
-<section> => <article> => (div => img star, image close out) h3, p (div => plus svg, h4)-->
   <header class="grid-item-1">
     <h1>IdeaBox</h1>
     <nav>
@@ -25,44 +21,101 @@
 
     <form action="index.html" method="post">
       <div class="title">
-        <label for="">Title</label>
-        <input type="text" class="form-entries" name="" value="">
+        <label for="title">Title</label>
+        <input type="text" class="form-entries" name="title" id="title" required>
       </div>
 
       <div class="body">
-        <label for="">Body</label>
-        <input type="text" class="form-entries" name="" value="">
+        <label for="body">Body</label>
+        <textarea name="body" rows="8" cols="4" class="form-enteries" id="body" required></textarea>
       </div>
 
-      <button type="button" name="button" class="save-button">Save</button>
+      <button type="button" name="save-button" class="save-button">Save</button>
 
       <div class="search">
-        <img src="assets/search.svg" class="search-image" alt="">
-        <input type="text" name="" class="text" value="">
+        <img src="assets/search.svg" class="search-image" alt="search with a magnifying glass">
+        <input type="text" name="search" class="search-field" placeholder="Search ideas">
       </div>
     </form>
 
   </main>
 
   <section class="grid-item-3">
+
     <article class="idea-box">
-
       <div class="icon-bar">
-        <img src='assets/star.svg' class="idea-images" alt="">
-
-        <img src="assets/delete.svg" class="idea-images" alt="">
+        <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
+        <img src="assets/star-active.svg" class="idea-images" id="active-star" alt="favorited star" hidden>
+        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
       </div>
 
       <div class="title-body">
         <h3>Idea Title</h3>
-        <p>Idea body</p>
+        <p>Put your great ideas here! Put your bad ideas here! Sometimes they can be the same thing, right? Like an exploding pumpkin-- sounds fun until you do it, but then it makes a great story, too!</p>
       </div>
 
       <div class="comment-bar">
-        <img src="assets/comment.svg" class="idea-images" alt="">
+        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
         <h4>Comment</h4>
       </div>
+    </article>
 
+    <article class="idea-box">
+      <div class="icon-bar">
+        <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
+        <img src="assets/star-active.svg" class="idea-images" id="active-star" alt="favorited star" hidden>
+        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
+      </div>
+
+      <div class="title-body">
+        <h3>Idea Title</h3>
+        <p>Put your great ideas here! Put your bad ideas here! Sometimes they can be the same thing, right? Like an exploding pumpkin-- sounds fun until you do it, but then it makes a great story, too!</p>
+      </div>
+
+      <div class="comment-bar">
+        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
+        <h4>Comment</h4>
+      </div>
+    </article>
+
+    <article class="idea-box">
+      <div class="icon-bar">
+        <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
+        <img src="assets/star-active.svg" class="idea-images" id="active-star" alt="favorited star" hidden>
+        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
+      </div>
+
+      <div class="title-body">
+        <h3>Idea Title</h3>
+        <p>Put your great ideas here! Put your bad ideas here! Sometimes they can be the same thing, right? Like an exploding pumpkin-- sounds fun until you do it, but then it makes a great story, too!</p>
+      </div>
+
+      <div class="comment-bar">
+        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
+        <h4>Comment</h4>
+      </div>
+    </article>
+
+    <article class="idea-box">
+      <div class="icon-bar">
+        <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
+        <img src="assets/star-active.svg" class="idea-images" id="active-star" alt="favorited star" hidden>
+        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
+      </div>
+
+      <div class="title-body">
+        <h3>Idea Title</h3>
+        <p>Put your great ideas here! Put your bad ideas here! Sometimes they can be the same thing, right? Like an exploding pumpkin-- sounds fun until you do it, but then it makes a great story, too!</p>
+      </div>
+
+      <div class="comment-bar">
+        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
+        <h4>Comment</h4>
+      </div>
     </article>
 
   </section>
