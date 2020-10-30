@@ -104,7 +104,7 @@ nav {
 }
 
 .body {
-  height: 120px;
+  height: 115px;
   grid-template-rows: 20% 80%;
 }
 
@@ -123,10 +123,17 @@ nav {
 
 .search {
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 12% 88%;
   border: 10px;
   border-color: #353567;
   height: 75%;
+  padding-bottom: 5px;
+}
+
+.text {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: #353567;
 }
 
 form {
