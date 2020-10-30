@@ -16,7 +16,7 @@ header {
 }
 
 header>h1,
-nav>h2{
+nav>h2 {
   margin-left: 5%;
 }
 
@@ -26,14 +26,6 @@ main {
   grid-column: 2 / span 4;
   background-color: #A9AAD2;
   /* grid-auto-rows: 35%; */
-}
-
-section {
-  display: grid;
-  grid-row: 3 / span 3;
-  grid-column: 2 / span 4;
-  border: solid;
-  /* grid-auto-rows: 65%; */
 }
 
 article {
@@ -192,7 +184,7 @@ h1 {
   color: #FFFFFF;
 }
 
-h2{
+h2 {
   padding-top: 5%;
   color: #BFBFDD;
 }
