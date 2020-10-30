@@ -123,15 +123,6 @@ form {
   border-color: #353567;
 }
 
-article {
-  height: 60%;
-  width: 55%;
-  display: grid;
-  grid-template-rows: 15% 70% 15%;
-  border: solid;
-  margin: 5%;
-}
-
 .grid-item-3 {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -142,10 +133,20 @@ article {
   background-color: #EAEAF4;
 }
 
+.idea-box {
+  height: 60%;
+  width: 55%;
+  display: grid;
+  grid-template-rows: 15% 70% 15%;
+  border: 1px solid #6E646B;
+  margin: 5%;
+}
+
 .idea-images {
-  height: 1.2em;
-  width: 1.2em;
+  height: 2em;
+  width: 2em;
   padding: 0;
+  margin: 0;
 }
 
 .icon-bar {
@@ -154,6 +155,7 @@ article {
   justify-content: space-between;
   align-items: center;
   background-color: #1F1F3D;
+  border-bottom: 1px solid #6E646B;
 }
 
 .title-body {
@@ -172,16 +174,21 @@ article {
   color: #1F1E3D;
 }
 
+p {
+  overflow: scroll;
+}
+
 .comment-bar {
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 7% 93%;
   align-items: center;
   background-color: #3536A5;
+  border-top: 1px solid #6E646B;
 }
 
 .comment-bar>h4 {
   margin: 0;
-  padding-left: 5%;
+  padding: 0;
 }
 
 /* Font management */
