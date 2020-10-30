@@ -86,6 +86,8 @@ nav {
   height: 100%;
   width: 100%;
   background-color: #353567;
+  border: 10px;
+  border-color: #353567;
 }
 
 .title,
@@ -93,6 +95,7 @@ nav {
   display: grid;
   align-content: start;
   color: #353567;
+  border: none;
 }
 
 .title {
@@ -101,46 +104,42 @@ nav {
 }
 
 .body {
-  height: 120px;
+  height: 115px;
   grid-template-rows: 20% 80%;
+}
+
+.form-entries {
+  border-radius: 5px;
 }
 
 .save-button {
   height: 45px;
   background-color: #353567;
   color: #FFFFFF;
+  border: 1px;
+  border-color: #353567;
+  border-radius: 5px;
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 12% 88%;
+  border: 10px;
+  border-color: #353567;
+  height: 75%;
+  padding-bottom: 5px;
+}
+
+.text {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: #353567;
 }
 
 form {
   display: grid;
   align-items: center;
   justify-content: center;
-  border: solid;
-}
-
-.search {
-  display: grid;
-  grid-template-columns: 10% 90%;
-}
-
-.search>button {
-  /* height: 100;
-  width: 10%; */
-  /* align-items: center; */
-  background-color: #353567;
-}
-
-.search>.text {
-  /* height: 30px; */
-  /* width: 90%; */
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.search>button,
-.search>input {
-  padding: 0;
-  margin: 0;
 }
 
 .idea-images {
