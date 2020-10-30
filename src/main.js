@@ -1,3 +1,4 @@
+var titleAndBody = document.querySelector('.form-entries');
 var saveButton = document.querySelector('.save-button');
-var title = document.querySelector('.title');
-var body = document.querySelector('.body');
+var ideaBox = document.querySelector('.idea-box');
+var ideaList = [];
