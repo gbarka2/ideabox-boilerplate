@@ -19,7 +19,6 @@ header {
 header>h1,
 nav>h2 {
   margin-left: 5%;
-  font-family: "Open Sans";
 }
 
 h2 {
@@ -144,8 +143,8 @@ article {
 }
 
 .idea-images {
-  height: 20px;
-  width: 20px;
+  height: 1.2em;
+  width: 1.2em;
   padding: 0;
 }
 
@@ -173,7 +172,6 @@ article {
   color: #1F1E3D;
 }
 
-/* put inside of .title-body? */
 .comment-bar {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -184,6 +182,21 @@ article {
 .comment-bar>h4 {
   margin: 0;
   padding-left: 5%;
+}
+
+/* Font management */
+.title-body>h3,
+.comment-bar>h4,
+.save-button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.title-body>p,
+header>h1,
+nav>h2,
+form {
+  font-family: "Open Sans", sans-serif;
 }
 
 .hidden {
