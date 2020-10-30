@@ -120,6 +120,7 @@ form {
   border: 1px;
   border-color: #353567;
   border-radius: 5px;
+  font-size: 1.2em;
 }
 
 .search-field {
@@ -188,7 +189,7 @@ p {
   display: grid;
   grid-template-columns: 15% 85%;
   align-items: center;
-  background-color: #3536A5;
+  background-color: #5356A4;
   border-top: 1px solid #6E646B;
 }
 
