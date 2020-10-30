@@ -60,28 +60,10 @@ main {
   background-color: #A9AAD2;
 }
 
-article {
-  height: 60%;
-  width: 55%;
+form {
   display: grid;
-  grid-template-rows: 15% 70% 15%;
-  border: solid;
-  margin: 5%;
-}
-
-.title-body>h3 {
-  margin: 0;
-  color: #1F1E3D;
-}
-
-.title-body>p {
-  margin: 0;
-  color: #1F1F3D;
-}
-
-/* Add div class name for styling/color */
-div {
-  border: solid;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-image {
@@ -116,6 +98,15 @@ div {
   border-radius: 5px;
 }
 
+.search {
+  display: grid;
+  grid-template-columns: 12% 88%;
+  border: 10px;
+  border-color: #353567;
+  height: 75%;
+  padding-bottom: 5px;
+}
+
 .save-button {
   height: 45px;
   background-color: #353567;
@@ -127,25 +118,29 @@ div {
   border-radius: 5px;
 }
 
-.search {
-  display: grid;
-  grid-template-columns: 12% 88%;
-  border: 10px;
-  border-color: #353567;
-  height: 75%;
-  padding-bottom: 5px;
-}
-
 .search-field {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-color: #353567;
 }
 
-form {
+article {
+  height: 60%;
+  width: 55%;
   display: grid;
-  align-items: center;
-  justify-content: center;
+  grid-template-rows: 15% 70% 15%;
+  border: solid;
+  margin: 5%;
+}
+
+.grid-item-3 {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-row: 3 /span 3;
+  justify-items: center;
+  grid-gap: 5%;
+  background-color: #EAEAF4;
 }
 
 .idea-images {
@@ -162,6 +157,23 @@ form {
   background-color: #1F1F3D;
 }
 
+.title-body {
+  display: grid;
+  grid-template-rows: 25% 75%;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #FFFFFF;
+}
+
+.title-body>h3,
+.title-body>p {
+  margin: 0;
+  color: #1F1E3D;
+}
+
+/* put inside of .title-body? */
 .comment-bar {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -174,27 +186,6 @@ form {
   padding-left: 5%;
 }
 
-.title-body {
-  display: grid;
-  grid-template-rows: 25% 75%;
-  padding-top: 8%;
-  padding-bottom: 8%;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #FFFFFF;
-}
-
-.grid-item-3 {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, auto);
-  grid-row: 3 /span 3;
-  justify-items: center;
-  grid-gap: 5%;
-  background-color: #EAEAF4;
-}
-
-h1,
-h4 {
-  color: #FFFFFF;
+.hidden {
+  display: none !important;
 }
