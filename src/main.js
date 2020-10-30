@@ -9,20 +9,10 @@ var ideaList = [];
 saveButton.addEventListener('click', clearEntries)
 
 ///WORKING FUNCTION///
+// LOOKING TO REFACTOR USING titleAndBody ONLY
 function clearEntries() {
-  debugger
   if (title.value && body.value) {
     title.value = null;
     body.value = null;
   }
 }
-
-// 
-// function clearEntries() {
-//   debugger
-//   if (title.value && body.value) {
-//     titleAndBody.value = null;
-//     //     title.value = null;
-//     //     body.value = null;
-//   }
-// }
