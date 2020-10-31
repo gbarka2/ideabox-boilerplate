@@ -3,12 +3,13 @@ var body = document.querySelector('#body');
 
 var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
-var ideaBox = document.querySelector('.idea-box');
 var ideaSection = document.querySelector('.grid-item-3');
+var disableHover = document.querySelector('.disable-hover');
 var ideaList = [];
 var currentIdea;
 
-saveButton.addEventListener('click', newIdeaCard)
+saveButton.addEventListener('click', newIdeaCard);
+disableHover.addEventListener('mouseenter', enableButton);
 
 ///WORKING FUNCTION///
 // LOOKING TO REFACTOR USING titleAndBody ONLY
@@ -16,23 +17,18 @@ function clearEntries() {
   if (title.value && body.value) {
     title.value = null;
     body.value = null;
+    saveButton.disabled = true;
+    saveButton.classList.add('disable-button');
+    // possible add of "add('disable-button') function"
   }
-}
+};
 
-/*
-When title and body are null;
-disable button === changing color
-
-if (title.value = "" && body.value = "") {
-  enable the saveButton
-  fire the clearEntries()
-  fire the dieabox creation function()
-}
-
-when the cursor is hovering over
-change cursor icon
-
-*/
+function enableButton() {
+  if (title.value && body.value) {
+    saveButton.disabled = false;
+    saveButton.classList.remove('disable-button');
+  }
+};
 
 function updateIdeaList() {
   currentIdea = new Idea(title.value, body.value);
@@ -40,7 +36,7 @@ function updateIdeaList() {
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
   }
-}
+};
 
 function newIdeaCard() {
   updateIdeaList();
@@ -64,7 +60,4 @@ function newIdeaCard() {
       </div>
     </article>`
   }
-}
-// take input value of title
-// take input value of Body
-//
+};

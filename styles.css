@@ -107,15 +107,20 @@ form {
 }
 
 .save-button {
-  height: 2.8em;
+  height: 100%;
+  width: 100%;
   background-color: #353567;
   color: #FFFFFF;
-  margin-top: 2%;
-  margin-bottom: 2%;
   border: 1px;
   border-color: #353567;
   border-radius: 4px;
   font-size: 1.2em;
+}
+
+.disable-hover{
+  height: 2.8em;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .search-field {
@@ -210,4 +215,10 @@ form,
 
 .hidden {
   display: none !important;
+}
+
+.disable-button{
+  background-color: #5356A4;
+  cursor: not-allowed;
+  opacity: 50%;
 }
