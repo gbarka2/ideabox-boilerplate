@@ -21,12 +21,14 @@ function clearEntries() {
   }
 }
 
-function disableButton(event) {
-  if (title.value == undefined && body.value == undefined) {
-    saveButton.disabled = true;
-    event.target.style.cursor = 'help';
+function disableButton() {
+  alert('mouse over test!');
+  // if (title.value && body.value) {
+  //   // saveButton.removeAttribute('disabled');
   }
 }
+
+
 
 // make a querySelector for a div
 // that has a button nested within

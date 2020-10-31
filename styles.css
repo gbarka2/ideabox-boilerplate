@@ -211,3 +211,8 @@ form,
 .hidden {
   display: none !important;
 }
+
+.disable-button{
+  background-color: red;
+  cursor: not-allowed;
+}
