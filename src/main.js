@@ -5,12 +5,12 @@ var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaBox = document.querySelector('.idea-box');
 var ideaSection = document.querySelector('.grid-item-3');
-var disableHover = document.querySelector('.disable-hover');
+// var disableHover = document.querySelector('.disable-hover');
 var ideaList = [];
 var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
-disableHover.addEventListener('mouseover', disableButton);
+saveButton.addEventListener('mouseover', disableButton);
 
 ///WORKING FUNCTION///
 // LOOKING TO REFACTOR USING titleAndBody ONLY
@@ -21,9 +21,10 @@ function clearEntries() {
   }
 }
 
-function disableButton() {
-  if (title.value === "" && body.value === "") {
-    disableHover.disabled = true;
+function disableButton(event) {
+  if (title.value == undefined && body.value == undefined) {
+    saveButton.disabled = true;
+    event.target.style.cursor = 'help';
   }
 }
 
