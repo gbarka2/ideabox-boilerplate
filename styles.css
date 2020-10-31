@@ -106,7 +106,8 @@ form {
   padding-bottom: 5px;
 }
 
-.save-button {
+.save-button,
+.disable-hover {
   height: 2.8em;
   background-color: #353567;
   color: #FFFFFF;
@@ -212,7 +213,7 @@ form,
   display: none !important;
 }
 
-.disable-button{
+/* .disable-button{
   background-color: red;
   cursor: not-allowed;
-}
+} */
