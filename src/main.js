@@ -23,9 +23,10 @@ function clearEntries() {
 
 function enableButton() {
   if (title.value && body.value) {
-      saveButton.disabled = false;
+    saveButton.disabled = false;
   }
 }
+
 
 
 
