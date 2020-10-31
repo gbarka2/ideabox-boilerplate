@@ -3,7 +3,6 @@ var body = document.querySelector('#body');
 
 var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
-var ideaBox = document.querySelector('.idea-box');
 var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
 var ideaList = [];
@@ -18,37 +17,18 @@ function clearEntries() {
   if (title.value && body.value) {
     title.value = null;
     body.value = null;
+    saveButton.disabled = true;
+    saveButton.classList.add('disable-button');
+    // possible add of "add('disable-button') function"
   }
-}
+};
 
 function enableButton() {
   if (title.value && body.value) {
     saveButton.disabled = false;
+    saveButton.classList.remove('disable-button');
   }
-}
-
-
-
-
-// make a querySelector for a div
-// that has a button nested within
-// and then create an event listener with
-// mouseover allowing the disable and transforming cursor
-
-/*
-When title and body are null;
-disable button === changing color
-
-if (title.value = "" && body.value = "") {
-  enable the saveButton
-  fire the clearEntries()
-  fire the ideabox creation function()
-}
-
-when the cursor is hovering over
-change cursor icon
-
-*/
+};
 
 function updateIdeaList() {
   currentIdea = new Idea(title.value, body.value);
@@ -56,7 +36,7 @@ function updateIdeaList() {
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
   }
-}
+};
 
 function newIdeaCard() {
   updateIdeaList();
@@ -80,4 +60,4 @@ function newIdeaCard() {
       </div>
     </article>`
   }
-}
+};
