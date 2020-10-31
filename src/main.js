@@ -5,10 +5,12 @@ var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaBox = document.querySelector('.idea-box');
 var ideaSection = document.querySelector('.grid-item-3');
+var disableHover = document.querySelector('.disable-hover');
 var ideaList = [];
 var currentIdea;
 
-saveButton.addEventListener('click', newIdeaCard)
+saveButton.addEventListener('click', newIdeaCard);
+disableHover.addEventListener('mouseover', disableButton);
 
 ///WORKING FUNCTION///
 // LOOKING TO REFACTOR USING titleAndBody ONLY
@@ -19,6 +21,17 @@ function clearEntries() {
   }
 }
 
+function disableButton() {
+  if (title.value === "" && body.value === "") {
+    disableHover.disabled = true;
+  }
+}
+
+// make a querySelector for a div
+// that has a button nested within
+// and then create an event listener with
+// mouseover allowing the disable and transforming cursor
+
 /*
 When title and body are null;
 disable button === changing color
@@ -26,7 +39,7 @@ disable button === changing color
 if (title.value = "" && body.value = "") {
   enable the saveButton
   fire the clearEntries()
-  fire the dieabox creation function()
+  fire the ideabox creation function()
 }
 
 when the cursor is hovering over
@@ -65,6 +78,3 @@ function newIdeaCard() {
     </article>`
   }
 }
-// take input value of title
-// take input value of Body
-//
