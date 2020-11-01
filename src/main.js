@@ -13,11 +13,24 @@ var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
+ideaSection.addEventListener('click', )
 
 function enableButton() {
   if (title.value && body.value) {
     saveButton.disabled = false;
     saveButton.classList.remove('disable-button');
+  }
+};
+
+///WORKING FUNCTION///
+// LOOKING TO REFACTOR USING titleAndBody ONLY
+function clearEntries() {
+  if (title.value && body.value) {
+    title.value = null;
+    body.value = null;
+    saveButton.disabled = true;
+    saveButton.classList.add('disable-button');
+    // possible add of "add('disable-button') function"?
   }
 };
 
@@ -52,33 +65,26 @@ function newIdeaCard() {
       </div>
     </article>`
   }
-
-  ///WORKING FUNCTION///
-  // LOOKING TO REFACTOR USING titleAndBody ONLY
-  function clearEntries() {
-    if (title.value && body.value) {
-      title.value = null;
-      body.value = null;
-      saveButton.disabled = true;
-      saveButton.classList.add('disable-button');
-      // possible add of "add('disable-button') function"?
-    }
-  };
 };
 
+// function deleteIdeaBox(event) {
+//   if (event.target.id === 'delete-idea') {
+//     for(var i = 0; i < ideaList)
+//   }
+// }
 
-inactiveStar.addEventListener('click', favoriteIdea);
-console.log('favorite star', inactiveStar);
-//ok
-console.log('active favorite star', activeStar);
-//error message of "cannot read property of null" line16
-function favoriteIdea() {
-  alert('it fired!');
-  // inactiveStar.classList.add('hidden');
-}
+// inactiveStar.addEventListener('click', favoriteIdea);
+// console.log('favorite star', inactiveStar);
+// //ok
+// console.log('active favorite star', activeStar);
+// //error message of "cannot read property of null" line16
+// function favoriteIdea() {
+//   alert('it fired!');
+//   // inactiveStar.classList.add('hidden');
+// }
 
 //I tried using .setAttribute/removeAttribute
 //I tried setting activeStar.hidden = false
 //I tried using hidden as an attribute and then hidden as a class value and applying the CSS property of display:none;
 //The error of the event listener being null seems to be the biggest road block.
-//some comments on stackoverflow indicate it has to do with the DOM not being loaded before it fires? 
+//some comments on stackoverflow indicate it has to do with the DOM not being loaded before it fires?
