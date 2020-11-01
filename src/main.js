@@ -48,7 +48,7 @@ function newIdeaCard() {
   ideaSection.innerHTML = '';
   for (var i = 0; i < ideaList.length; i++) {
     ideaSection.innerHTML += `
-    <article class="idea-box">
+    <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
         <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
         <img src="assets/star-active.svg" class="idea-images hidden" id="active-star" alt="favorited star">
@@ -72,13 +72,15 @@ function deleteIdeaBox(event) {
   // deleteButton.addEventListener('click', function()
   // event.target.className === 'delete-idea'
   // debugger
+  var article = document.getElementById('id');
   var ideaID = Number(event.target.id);
   for(var i = 0; i < ideaList.length; i++) {
+    var article = document.getElementById([i]);
     if (ideaID === ideaList[i].id) {
       ideaList.splice(i, 1);
+      article.remove();
     }
   }
-  newIdeaCard();
 };
 
 // inactiveStar.addEventListener('click', favoriteIdea);
