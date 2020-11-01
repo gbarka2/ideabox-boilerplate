@@ -69,13 +69,11 @@ function newIdeaCard() {
 };
 
 function manageIdeaBox(event) {
-  debugger;
-  if (event.target.className === 'delete-idea') {
-    deleteIdeaBox();
-  } else if (event.target.className === 'white-star' || event.target.className === 'red-star') {
-    favoriteIdeaBox();
-  } else {
-    alert('WRONG');
+  var targetClass = event.target.className
+  if (targetClass === 'idea-images delete-idea') {
+    deleteIdeaBox(event);
+  } else if (targetClass === 'idea-images white-star' || targetClass === 'idea-images red-star') {
+    favoriteIdeaBox(event);
   }
 }
 
@@ -105,19 +103,3 @@ function favoriteIdeaBox(event) {
     }
   }
 }
-
-// function toggleStar(star){
-//   if()
-//   whiteStar.classList.toggle('hidden');
-//   redStar.classList.toggle('hidden');
-// }
-//how are we accessing the DOM? --> via the parent box of ideaSection
-
-//if/else statement to assess if user wants to favorite or to delete? That way not crossing too many paths with ideaSection.
-
-
-// function favoriteIdeaBox() {
-//create a getElementById for favorite-star and active-star
-//if the event.target.id is the same as the ideaList[i].id
-//classList.add/remove hidden
-// }
