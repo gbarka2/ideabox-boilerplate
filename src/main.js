@@ -13,7 +13,7 @@ var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
-ideaSection.addEventListener('click', )
+ideaSection.addEventListener('click', deleteIdeaBox);
 
 function enableButton() {
   if (title.value && body.value) {
@@ -67,11 +67,13 @@ function newIdeaCard() {
   }
 };
 
-// function deleteIdeaBox(event) {
-//   if (event.target.id === 'delete-idea') {
-//     for(var i = 0; i < ideaList)
-//   }
-// }
+function deleteIdeaBox(event) {
+  if (event.target.id === 'delete-idea') {
+    for(var i = 0; i < ideaList.length; i++) {
+      ideaList.splice(i, 1);
+    }
+  }
+};
 
 // inactiveStar.addEventListener('click', favoriteIdea);
 // console.log('favorite star', inactiveStar);
