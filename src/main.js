@@ -68,17 +68,12 @@ function newIdeaCard() {
 };
 
 function deleteIdeaBox(event) {
-  // var deleteButton = document.querySelector('#delete-idea');
-  // deleteButton.addEventListener('click', function()
-  // event.target.className === 'delete-idea'
-  // debugger
-  var article = document.getElementById('id');
   var ideaID = Number(event.target.id);
   for(var i = 0; i < ideaList.length; i++) {
-    var article = document.getElementById([i]);
+    var article = document.getElementById(ideaID);
     if (ideaID === ideaList[i].id) {
       ideaList.splice(i, 1);
-      article.remove();
+      ideaSection.removeChild(article);
     }
   }
 };
