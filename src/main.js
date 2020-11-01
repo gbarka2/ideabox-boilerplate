@@ -5,11 +5,21 @@ var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
+
 var ideaList = [];
 var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
+// ideaSection.addEventListener('click', deleteIdeaBox);
+ideaSection.addEventListener('click', manageIdeaBox);
+
+function enableButton() {
+  if (title.value && body.value) {
+    saveButton.disabled = false;
+    saveButton.classList.remove('disable-button');
+  }
+};
 
 ///WORKING FUNCTION///
 // LOOKING TO REFACTOR USING titleAndBody ONLY
@@ -19,14 +29,7 @@ function clearEntries() {
     body.value = null;
     saveButton.disabled = true;
     saveButton.classList.add('disable-button');
-    // possible add of "add('disable-button') function"
-  }
-};
-
-function enableButton() {
-  if (title.value && body.value) {
-    saveButton.disabled = false;
-    saveButton.classList.remove('disable-button');
+    // possible add of "add('disable-button') function"?
   }
 };
 
@@ -38,16 +41,19 @@ function updateIdeaList() {
   }
 };
 
+//is there a way to manipulate below without having all the html? innerText of the h3 and p?
+//see slack for questions on active-delete & hover
+
 function newIdeaCard() {
   updateIdeaList();
   ideaSection.innerHTML = '';
   for (var i = 0; i < ideaList.length; i++) {
     ideaSection.innerHTML += `
-    <article class="idea-box">
+    <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
-        <img src="assets/star-active.svg" class="idea-images" id="active-star" alt="favorited star" hidden>
-        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/star.svg" class="idea-images white-star" id="${ideaList[i].id}" alt="favorite star">
+        <img src="assets/star-active.svg" class="idea-images red-star hidden" id="${ideaList[i].id}" alt="favorited star">
+        <img src="assets/delete.svg" class="idea-images delete-idea" id="${ideaList[i].id}" alt="delete idea">
         <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
       </div>
       <div class="title-body">
@@ -61,3 +67,39 @@ function newIdeaCard() {
     </article>`
   }
 };
+
+function manageIdeaBox(event) {
+  var targetClass = event.target.className
+  if (targetClass === 'idea-images delete-idea') {
+    deleteIdeaBox(event);
+  } else if (targetClass === 'idea-images white-star' || targetClass === 'idea-images red-star') {
+    favoriteIdeaBox(event);
+  }
+}
+
+function deleteIdeaBox(event) {
+  var ideaID = Number(event.target.id);
+  for (var i = 0; i < ideaList.length; i++) {
+    var article = document.getElementById(ideaID);
+    if (ideaID === ideaList[i].id) {
+      ideaList.splice(i, 1);
+      ideaSection.removeChild(article);
+    }
+  }
+};
+
+function favoriteIdeaBox(event) {
+  var ideaID = Number(event.target.id);
+  var whiteStar = document.querySelector('.white-star');
+  var redStar = document.querySelector('.red-star');
+  for (var i = 0; i < ideaList.length; i++) {
+    // var article = document.getElementById(ideaID);
+    // need for later?
+    if (ideaID === ideaList[i].id) {
+      whiteStar.classList.toggle('hidden');
+      redStar.classList.toggle('hidden');
+      // ideaList[i].star = true;
+      //how do we get it to unfavor then?
+    }
+  }
+}
