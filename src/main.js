@@ -52,7 +52,7 @@ function newIdeaCard() {
       <div class="icon-bar">
         <img src="assets/star.svg" class="idea-images" id="favorite-star" alt="favorite star">
         <img src="assets/star-active.svg" class="idea-images hidden" id="active-star" alt="favorited star">
-        <img src="assets/delete.svg" class="idea-images" id="delete-idea" alt="delete idea">
+        <img src="assets/delete.svg" class="idea-images delete-idea" id="${ideaList[i].id}" alt="delete idea">
         <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
       </div>
       <div class="title-body">
@@ -68,11 +68,17 @@ function newIdeaCard() {
 };
 
 function deleteIdeaBox(event) {
-  if (event.target.id === 'delete-idea') {
-    for(var i = 0; i < ideaList.length; i++) {
+  // var deleteButton = document.querySelector('#delete-idea');
+  // deleteButton.addEventListener('click', function()
+  // event.target.className === 'delete-idea'
+  // debugger
+  var ideaID = Number(event.target.id);
+  for(var i = 0; i < ideaList.length; i++) {
+    if (ideaID === ideaList[i].id) {
       ideaList.splice(i, 1);
     }
   }
+  newIdeaCard();
 };
 
 // inactiveStar.addEventListener('click', favoriteIdea);
