@@ -150,7 +150,10 @@ form {
   background-color: #FFFFFF;
 }
 
-.idea-images {
+.white-star,
+.red-star,
+.delete-idea,
+.comment {
   height: 2em;
   width: 2em;
   padding: 0;

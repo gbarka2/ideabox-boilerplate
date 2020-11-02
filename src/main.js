@@ -1,7 +1,7 @@
 var title = document.querySelector('#title');
 var body = document.querySelector('#body');
 
-var titleAndBody = document.querySelectorAll('.form-entries');
+// var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
@@ -11,7 +11,6 @@ var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
-// ideaSection.addEventListener('click', deleteIdeaBox);
 ideaSection.addEventListener('click', manageIdeaBox);
 
 function enableButton() {
@@ -51,17 +50,17 @@ function newIdeaCard() {
     ideaSection.innerHTML += `
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="idea-images white-star" id="${ideaList[i].id}" alt="favorite star">
-        <img src="assets/star-active.svg" class="idea-images red-star hidden" id="${ideaList[i].id}" alt="favorited star">
-        <img src="assets/delete.svg" class="idea-images delete-idea" id="${ideaList[i].id}" alt="delete idea">
-        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
+        <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
+        <img src="assets/star-active.svg" class="red-star hidden" id="${ideaList[i].id}" alt="favorited star">
+        <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
+        <img src="assets/delete-active.svg" class="hidden" id="active-delete" alt="please delete idea">
       </div>
       <div class="title-body">
         <h3>${ideaList[i].title}</h3>
         <p>${ideaList[i].body}</p>
       </div>
       <div class="comment-bar">
-        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
+        <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
         <h4>Comment</h4>
       </div>
     </article>`
@@ -70,9 +69,9 @@ function newIdeaCard() {
 
 function manageIdeaBox(event) {
   var targetClass = event.target.className
-  if (targetClass === 'idea-images delete-idea') {
+  if (targetClass === 'delete-idea') {
     deleteIdeaBox(event);
-  } else if (targetClass === 'idea-images white-star' || targetClass === 'idea-images red-star') {
+  } else if (targetClass === 'white-star' || targetClass === 'red-star') {
     favoriteIdeaBox(event);
   }
 }
@@ -89,6 +88,7 @@ function deleteIdeaBox(event) {
 };
 
 function favoriteIdeaBox(event) {
+  debugger
   var ideaID = Number(event.target.id);
   var whiteStar = document.querySelector('.white-star');
   var redStar = document.querySelector('.red-star');
