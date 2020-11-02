@@ -50,8 +50,8 @@ function newIdeaCard() {
     ideaSection.innerHTML += `
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
-        <img src="assets/star-active.svg" class="red-star hidden" id="${ideaList[i].id}" alt="favorited star">
+        <img src="assets/star.svg" class="white-star" id="white-star" alt="favorite star">
+        <img src="assets/star-active.svg" class="red-star hidden" id="red-star" alt="favorited star">
         <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
         <img src="assets/delete-active.svg" class="hidden" id="active-delete" alt="please delete idea">
       </div>
@@ -87,19 +87,42 @@ function deleteIdeaBox(event) {
   }
 };
 
+//&& targetID === whiteImage
+// && targetID === redImage
+
 function favoriteIdeaBox(event) {
-  debugger
-  var ideaID = Number(event.target.id);
-  var whiteStar = document.querySelector('.white-star');
-  var redStar = document.querySelector('.red-star');
-  for (var i = 0; i < ideaList.length; i++) {
-    // var article = document.getElementById(ideaID);
-    // need for later?
-    if (ideaID === ideaList[i].id) {
-      whiteStar.classList.toggle('hidden');
-      redStar.classList.toggle('hidden');
-      // ideaList[i].star = true;
-      //how do we get it to unfavor then?
+  var variable
+  // having trouble discerning how to target the
+  // class/id
+  
+    if (star = false) {
+      star = true;
+      variable.classList.remove(white)
+      variable.classList.add(red);
+    } else if (star = true) {
+      star = false;
+      variable.classList.remove(red)
+      variable.classList.add(white)
     }
-  }
 }
+
+// function favoriteIdeaBox(event) {
+//   debugger
+//   var whiteStarID = Number(event.target.id);
+//   var redStarID = Number(event.target.id);
+//   // var whiteStar = document.getElementById(whiteStarID);
+//   // var redStar = document.getElementById(redStarID);
+//   var whiteImage = document.querySelector(".white-star");
+//   var redImage = document.querySelector(".red-star")
+//   // var whiteImage = event.target.className;
+//   // var redImage = event.target.className;
+//   for (var i = 0; i < ideaList.length; i++) {
+//     if (whiteStarID === ideaList[i].id) {
+//       // document.getElementByID('white-star').src="assets/star-active.svg";
+//       whiteImage.classList.toggle('hidden');
+//       redImage.classList.toggle('hidden');
+//       // ideaList[i].star = true;
+//       //how do we get it to unfavor then?
+//     }
+//   }
+// }
