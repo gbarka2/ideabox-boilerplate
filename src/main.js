@@ -8,10 +8,12 @@ var disableHover = document.querySelector('.disable-hover');
 
 var ideaList = [];
 var currentIdea;
+var stringifiedList;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
 ideaSection.addEventListener('click', manageIdeaBox);
+window.addEventListener('load', getIdeaBox);
 
 function enableButton() {
   if (title.value && body.value) {
@@ -37,6 +39,7 @@ function updateIdeaList() {
   clearEntries();
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
+    currentIdea.saveToStorage(stringifiedList, ideaList);
   }
 };
 
@@ -91,5 +94,41 @@ function deleteIdeaBox(event) {
       ideaList.splice(i, 1);
       ideaSection.removeChild(article);
     }
+  }
+};
+
+// contain in helper function to seperate info (keep code small)
+// ideabox is created as an object
+// ideaList contains created ideaboxes or objects
+// JSON stringify the array of objects?
+// or each individual object in the array?
+// .setItem using localStorage for the objects
+// upon refresh the ideaBox objects should remain on the page
+
+// function updateLocalStorage(ideaList) {
+//   var stringifiedList = JSON.stringify(ideaList);
+//   localStorage.setItem('storedIdeas', stringifiedList);
+// };
+
+function getIdeaBox() {
+  var retrieved = localStorage.getItem('storedIdeas');
+  var parsed = JSON.parse(retrieved);
+  ideaSection.innerHTML = '';
+  for (var i = 0; i < parsed.length; i++) {
+    ideaSection.innerHTML += `
+    <article class="idea-box" id="${parsed[i].id}">
+    <div class="icon-bar">
+    <img src="assets/star.svg" class="white-star" alt="favorite star">
+    <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
+    </div>
+    <div class="title-body">
+    <h3>${parsed[i].title}</h3>
+    <p>${parsed[i].body}</p>
+    </div>
+    <div class="comment-bar">
+    <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
+    <h4>Comment</h4>
+    </div>
+    </article>`
   }
 };

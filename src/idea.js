@@ -5,8 +5,10 @@ class Idea {
     this.body = body;
     this.star = false;
   }
-  saveToStorage() {
 
+  saveToStorage(stringifiedList, ideaList) {
+    stringifiedList = JSON.stringify(ideaList);
+    localStorage.setItem('storedIdeas', stringifiedList);
   }
   deleteFromStorage() {
 
