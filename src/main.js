@@ -38,7 +38,7 @@ function updateIdeaList() {
   clearEntries();
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
-    updateLocalStorage(currentIdea);
+    updateLocalStorage(ideaList);
   }
 };
 
@@ -104,27 +104,30 @@ function deleteIdeaBox(event) {
 // .setItem using localStorage for the objects
 // upon refresh the ideaBox objects should remain on the page
 
-function updateLocalStorage(currentIdea) {
-  var stringifiedCurrentIdea = JSON.stringify(currentIdea);
-  localStorage.setItem('storedIdeas', stringifiedCurrentIdea);
+function updateLocalStorage(ideaList) {
+  var stringifiedList = JSON.stringify(ideaList);
+  localStorage.setItem('storedIdeas', stringifiedList);
 };
 
 function getIdeaBox() {
   var retrieved = localStorage.getItem('storedIdeas');
   var parsed = JSON.parse(retrieved);
-  ideaSection.innerHTML += `
-  <article class="idea-box" id="${ideaList[i].id}">
+  ideaSection.innerHTML = '';
+  for (var i = 0; i < parsed.length; i++) {
+    ideaSection.innerHTML += `
+    <article class="idea-box" id="${parsed[i].id}">
     <div class="icon-bar">
-      <img src="assets/star.svg" class="white-star" alt="favorite star">
-      <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
+    <img src="assets/star.svg" class="white-star" alt="favorite star">
+    <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
     </div>
     <div class="title-body">
-      <h3>${ideaList[i].title}</h3>
-      <p>${ideaList[i].body}</p>
+    <h3>${parsed[i].title}</h3>
+    <p>${parsed[i].body}</p>
     </div>
     <div class="comment-bar">
-      <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
-      <h4>Comment</h4>
+    <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
+    <h4>Comment</h4>
     </div>
-  </article>`
+    </article>`
+  }
 };
