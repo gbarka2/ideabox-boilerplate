@@ -1,7 +1,7 @@
 var title = document.querySelector('#title');
 var body = document.querySelector('#body');
 
-var titleAndBody = document.querySelectorAll('.form-entries');
+// var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
@@ -11,7 +11,6 @@ var currentIdea;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
-// ideaSection.addEventListener('click', deleteIdeaBox);
 ideaSection.addEventListener('click', manageIdeaBox);
 
 function enableButton() {
@@ -41,9 +40,6 @@ function updateIdeaList() {
   }
 };
 
-//is there a way to manipulate below without having all the html? innerText of the h3 and p?
-//see slack for questions on active-delete & hover
-
 function newIdeaCard() {
   updateIdeaList();
   ideaSection.innerHTML = '';
@@ -51,29 +47,51 @@ function newIdeaCard() {
     ideaSection.innerHTML += `
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="idea-images white-star" id="${ideaList[i].id}" alt="favorite star">
-        <img src="assets/star-active.svg" class="idea-images red-star hidden" id="${ideaList[i].id}" alt="favorited star">
-        <img src="assets/delete.svg" class="idea-images delete-idea" id="${ideaList[i].id}" alt="delete idea">
-        <img src="assets/delete-active.svg" class="idea-images hidden" id="active-delete" alt="please delete idea">
+        <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
+        <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
       </div>
       <div class="title-body">
         <h3>${ideaList[i].title}</h3>
         <p>${ideaList[i].body}</p>
       </div>
       <div class="comment-bar">
-        <img src="assets/comment.svg" class="idea-images" id="add-comment" alt="add comment">
+        <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
         <h4>Comment</h4>
       </div>
     </article>`
   }
 };
 
+//REFACTOR FOR STARS//
 function manageIdeaBox(event) {
-  var targetClass = event.target.className
-  if (targetClass === 'idea-images delete-idea') {
+  var targetClass = event.target
+  if (targetClass.className === 'delete-idea') {
     deleteIdeaBox(event);
-  } else if (targetClass === 'idea-images white-star' || targetClass === 'idea-images red-star') {
-    favoriteIdeaBox(event);
+  } else {
+    favoriteIdeaBox(targetClass);
+  }
+
+
+  // else if (targetClass.className === 'white-star') {
+  //   targetClass.src = "assets/star-active.svg"
+  //   targetClass.classList.add('red-star')
+  //   targetClass.classList.remove('white-star')
+  // } else if (targetClass.className === 'red-star') {
+  //   targetClass.src = "assets/star.svg"
+  //   targetClass.classList.add('white-star')
+  //   targetClass.classList.remove('red-star')
+  // }
+}
+
+function favoriteIdeaBox(targetClass) {
+  if (targetClass.className === 'white-star') {
+    targetClass.src = "assets/star-active.svg"
+    targetClass.classList.add('red-star')
+    targetClass.classList.remove('white-star')
+  } else if (targetClass.className === 'red-star') {
+    targetClass.src = "assets/star.svg"
+    targetClass.classList.add('white-star')
+    targetClass.classList.remove('red-star')
   }
 }
 
@@ -87,19 +105,3 @@ function deleteIdeaBox(event) {
     }
   }
 };
-
-function favoriteIdeaBox(event) {
-  var ideaID = Number(event.target.id);
-  var whiteStar = document.querySelector('.white-star');
-  var redStar = document.querySelector('.red-star');
-  for (var i = 0; i < ideaList.length; i++) {
-    // var article = document.getElementById(ideaID);
-    // need for later?
-    if (ideaID === ideaList[i].id) {
-      whiteStar.classList.toggle('hidden');
-      redStar.classList.toggle('hidden');
-      // ideaList[i].star = true;
-      //how do we get it to unfavor then?
-    }
-  }
-}
