@@ -51,9 +51,7 @@ function newIdeaCard() {
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
         <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
-        <img src="assets/star-active.svg" class="red-star hidden" id="${ideaList[i].id}" alt="favorited star">
         <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
-        <img src="assets/delete-active.svg" class="hidden" id="active-delete" alt="please delete idea">
       </div>
       <div class="title-body">
         <h3>${ideaList[i].title}</h3>
