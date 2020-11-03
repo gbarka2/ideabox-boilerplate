@@ -47,8 +47,8 @@ function newIdeaCard() {
     ideaSection.innerHTML += `
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
-        <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
+        <img src="assets/star.svg" class="white-star" alt="favorite star">
+        <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
       </div>
       <div class="title-body">
         <h3>${ideaList[i].title}</h3>
@@ -62,7 +62,6 @@ function newIdeaCard() {
   }
 };
 
-//REFACTOR FOR STARS//
 function manageIdeaBox(event) {
   var targetClass = event.target
   if (targetClass.className === 'delete-idea') {
@@ -70,18 +69,7 @@ function manageIdeaBox(event) {
   } else {
     favoriteIdeaBox(targetClass);
   }
-
-
-  // else if (targetClass.className === 'white-star') {
-  //   targetClass.src = "assets/star-active.svg"
-  //   targetClass.classList.add('red-star')
-  //   targetClass.classList.remove('white-star')
-  // } else if (targetClass.className === 'red-star') {
-  //   targetClass.src = "assets/star.svg"
-  //   targetClass.classList.add('white-star')
-  //   targetClass.classList.remove('red-star')
-  // }
-}
+};
 
 function favoriteIdeaBox(targetClass) {
   if (targetClass.className === 'white-star') {
@@ -93,7 +81,7 @@ function favoriteIdeaBox(targetClass) {
     targetClass.classList.add('white-star')
     targetClass.classList.remove('red-star')
   }
-}
+};
 
 function deleteIdeaBox(event) {
   var ideaID = Number(event.target.id);
