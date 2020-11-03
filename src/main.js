@@ -8,6 +8,7 @@ var disableHover = document.querySelector('.disable-hover');
 
 var ideaList = [];
 var currentIdea;
+var stringifiedList;
 
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
@@ -38,7 +39,7 @@ function updateIdeaList() {
   clearEntries();
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
-    saveToStorage(ideaList);
+    currentIdea.saveToStorage(stringifiedList, ideaList);
   }
 };
 
