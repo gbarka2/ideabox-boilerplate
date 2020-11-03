@@ -7,7 +7,7 @@ var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
 
 var ideaList = [];
-var currentIdea;
+var currentIdea = new Idea();
 var stringifiedList;
 
 saveButton.addEventListener('click', newIdeaCard);
@@ -51,7 +51,7 @@ function newIdeaCard() {
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
         <img src="assets/star.svg" class="white-star" alt="favorite star">
-        <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
+        <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
       </div>
       <div class="title-body">
         <h3>${ideaList[i].title}</h3>
@@ -93,37 +93,25 @@ function deleteIdeaBox(event) {
     if (ideaID === ideaList[i].id) {
       ideaList.splice(i, 1);
       ideaSection.removeChild(article);
+      currentIdea.deleteFromStorage(stringifiedList, ideaList);
     }
   }
 };
 
-// contain in helper function to seperate info (keep code small)
-// ideabox is created as an object
-// ideaList contains created ideaboxes or objects
-// JSON stringify the array of objects?
-// or each individual object in the array?
-// .setItem using localStorage for the objects
-// upon refresh the ideaBox objects should remain on the page
-
-// function updateLocalStorage(ideaList) {
-//   var stringifiedList = JSON.stringify(ideaList);
-//   localStorage.setItem('storedIdeas', stringifiedList);
-// };
-
 function getIdeaBox() {
   var retrieved = localStorage.getItem('storedIdeas');
-  var parsed = JSON.parse(retrieved);
+  ideaList = JSON.parse(retrieved);
   ideaSection.innerHTML = '';
-  for (var i = 0; i < parsed.length; i++) {
+  for (var i = 0; i < ideaList.length; i++) {
     ideaSection.innerHTML += `
-    <article class="idea-box" id="${parsed[i].id}">
+    <article class="idea-box" id="${ideaList[i].id}">
     <div class="icon-bar">
     <img src="assets/star.svg" class="white-star" alt="favorite star">
-    <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
+    <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
     </div>
     <div class="title-body">
-    <h3>${parsed[i].title}</h3>
-    <p>${parsed[i].body}</p>
+    <h3>${ideaList[i].title}</h3>
+    <p>${ideaList[i].body}</p>
     </div>
     <div class="comment-bar">
     <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
