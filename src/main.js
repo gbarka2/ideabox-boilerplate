@@ -98,27 +98,6 @@ function deleteIdeaBox(event) {
   }
 };
 
-// function deleteFromStorage(stringifiedList, ideaList) {
-//   localStorage.removeItem('storedIdeas');
-//   console.log(localStorage);
-//   //now local storage is clear of *everything*
-//   stringifiedList = JSON.stringify(ideaList);
-//   localStorage.setItem('storedIdeas', stringifiedList)
-//   console.log('after', localStorage)
-// }
-// contain in helper function to seperate info (keep code small)
-// ideabox is created as an object
-// ideaList contains created ideaboxes or objects
-// JSON stringify the array of objects?
-// or each individual object in the array?
-// .setItem using localStorage for the objects
-// upon refresh the ideaBox objects should remain on the page
-
-// function updateLocalStorage(ideaList) {
-//   var stringifiedList = JSON.stringify(ideaList);
-//   localStorage.setItem('storedIdeas', stringifiedList);
-// };
-
 function getIdeaBox() {
   var retrieved = localStorage.getItem('storedIdeas');
   ideaList = JSON.parse(retrieved);
