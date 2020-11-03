@@ -37,6 +37,7 @@ function updateIdeaList() {
   clearEntries();
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
+    updateLocalStorage(currentIdea);
   }
 };
 
@@ -92,4 +93,17 @@ function deleteIdeaBox(event) {
       ideaSection.removeChild(article);
     }
   }
+};
+
+// contain in helper function to seperate info (keep code small)
+// ideabox is created as an object
+// ideaList contains created ideaboxes or objects
+// JSON stringify the array of objects?
+// or each individual object in the array?
+// .setItem using localStorage for the objects
+// upon refresh the ideaBox objects should remain on the page
+
+function updateLocalStorage(currentIdea) {
+  var stringifiedCurrentIdea = JSON.stringify(currentIdea);
+  localStorage.setItem('storedIdeas', stringifiedCurrentIdea);
 };
