@@ -12,6 +12,7 @@ var currentIdea;
 saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
 ideaSection.addEventListener('click', manageIdeaBox);
+window.addEventListener('load', getIdeaBox);
 
 function enableButton() {
   if (title.value && body.value) {
@@ -106,4 +107,24 @@ function deleteIdeaBox(event) {
 function updateLocalStorage(currentIdea) {
   var stringifiedCurrentIdea = JSON.stringify(currentIdea);
   localStorage.setItem('storedIdeas', stringifiedCurrentIdea);
+};
+
+function getIdeaBox() {
+  var retrieved = localStorage.getItem('storedIdeas');
+  var parsed = JSON.parse(retrieved);
+  ideaSection.innerHTML += `
+  <article class="idea-box" id="${ideaList[i].id}">
+    <div class="icon-bar">
+      <img src="assets/star.svg" class="white-star" alt="favorite star">
+      <img src="assets/delete.svg" class="delete-idea" alt="delete idea">
+    </div>
+    <div class="title-body">
+      <h3>${ideaList[i].title}</h3>
+      <p>${ideaList[i].body}</p>
+    </div>
+    <div class="comment-bar">
+      <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
+      <h4>Comment</h4>
+    </div>
+  </article>`
 };
