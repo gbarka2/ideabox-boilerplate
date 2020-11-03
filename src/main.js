@@ -38,7 +38,7 @@ function updateIdeaList() {
   clearEntries();
   if (!ideaList.includes(currentIdea)) {
     ideaList.push(currentIdea);
-    updateLocalStorage(ideaList);
+    saveToStorage(ideaList);
   }
 };
 
@@ -104,10 +104,10 @@ function deleteIdeaBox(event) {
 // .setItem using localStorage for the objects
 // upon refresh the ideaBox objects should remain on the page
 
-function updateLocalStorage(ideaList) {
-  var stringifiedList = JSON.stringify(ideaList);
-  localStorage.setItem('storedIdeas', stringifiedList);
-};
+// function updateLocalStorage(ideaList) {
+//   var stringifiedList = JSON.stringify(ideaList);
+//   localStorage.setItem('storedIdeas', stringifiedList);
+// };
 
 function getIdeaBox() {
   var retrieved = localStorage.getItem('storedIdeas');
