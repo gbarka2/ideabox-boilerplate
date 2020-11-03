@@ -93,11 +93,19 @@ function deleteIdeaBox(event) {
     if (ideaID === ideaList[i].id) {
       ideaList.splice(i, 1);
       ideaSection.removeChild(article);
-      // deleteFromStorage();
+      deleteFromStorage(stringifiedList, ideaList);
     }
   }
 };
 
+function deleteFromStorage(stringifiedList, ideaList) {
+  localStorage.removeItem('storedIdeas');
+  console.log(localStorage);
+  //now local storage is clear of *everything*
+  stringifiedList = JSON.stringify(ideaList);
+  localStorage.setItem('storedIdeas', stringifiedList)
+  console.log('after', localStorage)
+}
 // contain in helper function to seperate info (keep code small)
 // ideabox is created as an object
 // ideaList contains created ideaboxes or objects
