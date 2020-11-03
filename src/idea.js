@@ -17,7 +17,17 @@ class Idea {
     localStorage.setItem('storedIdeas', stringifiedList)
   }
 
-  updateIdea() {
-
+  updateIdea(targetClass, ideaList) {
+    // targetClass = Number(event.target.id);
+    var targetId = Number(targetClass.id);
+    for (var i = 0; i < ideaList.length; i++) {
+      if(targetId === ideaList[i].id) {
+        if (this.star === true) {
+          deleteFromStorage();
+        }else if (this.star === false) {
+          deleteFromStorage();
+        }
+      }
+    }
   }
 };

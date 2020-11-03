@@ -76,13 +76,17 @@ function manageIdeaBox(event) {
 
 function favoriteIdeaBox(targetClass) {
   if (targetClass.className === 'white-star') {
+    targetClass.star = true;
     targetClass.src = "assets/star-active.svg"
     targetClass.classList.add('red-star')
     targetClass.classList.remove('white-star')
+    currentIdea.updateIdea(targetClass, ideaList);
   } else if (targetClass.className === 'red-star') {
+    targetClass.star = false;
     targetClass.src = "assets/star.svg"
     targetClass.classList.add('white-star')
     targetClass.classList.remove('red-star')
+    currentIdea.updateIdea(targetClass, ideaList);
   }
 };
 
@@ -122,3 +126,8 @@ function getIdeaBox() {
     }
   }
 }
+
+// when favorited .star value assigned to true
+// red colored star persists
+// when unfavortied .star value assigned to false
+// white star persists
