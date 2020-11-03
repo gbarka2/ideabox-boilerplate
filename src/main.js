@@ -99,24 +99,26 @@ function deleteIdeaBox(event) {
 };
 
 function getIdeaBox() {
-  var retrieved = localStorage.getItem('storedIdeas');
-  ideaList = JSON.parse(retrieved);
-  ideaSection.innerHTML = '';
-  for (var i = 0; i < ideaList.length; i++) {
-    ideaSection.innerHTML += `
-    <article class="idea-box" id="${ideaList[i].id}">
-    <div class="icon-bar">
-    <img src="assets/star.svg" class="white-star" alt="favorite star">
-    <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
-    </div>
-    <div class="title-body">
-    <h3>${ideaList[i].title}</h3>
-    <p>${ideaList[i].body}</p>
-    </div>
-    <div class="comment-bar">
-    <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
-    <h4>Comment</h4>
-    </div>
-    </article>`
+  if (localStorage.length > 0) {
+    var retrieved = localStorage.getItem('storedIdeas');
+    ideaList = JSON.parse(retrieved);
+    ideaSection.innerHTML = '';
+    for (var i = 0; i < ideaList.length; i++) {
+      ideaSection.innerHTML += `
+      <article class="idea-box" id="${ideaList[i].id}">
+      <div class="icon-bar">
+      <img src="assets/star.svg" class="white-star" alt="favorite star">
+      <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
+      </div>
+      <div class="title-body">
+      <h3>${ideaList[i].title}</h3>
+      <p>${ideaList[i].body}</p>
+      </div>
+      <div class="comment-bar">
+      <img src="assets/comment.svg" class="comment" id="add-comment" alt="add comment">
+      <h4>Comment</h4>
+      </div>
+      </article>`
+    }
   }
-};
+}
