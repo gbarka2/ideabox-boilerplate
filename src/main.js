@@ -40,9 +40,6 @@ function updateIdeaList() {
   }
 };
 
-//is there a way to manipulate below without having all the html? innerText of the h3 and p?
-//see slack for questions on active-delete & hover
-
 function newIdeaCard() {
   updateIdeaList();
   ideaSection.innerHTML = '';
@@ -65,16 +62,32 @@ function newIdeaCard() {
   }
 };
 
+//REFACTOR FOR STARS//
 function manageIdeaBox(event) {
   var targetClass = event.target
-  console.log(targetClass);
   if (targetClass.className === 'delete-idea') {
     deleteIdeaBox(event);
-  } else if (targetClass.className === 'white-star') {
+  } else {
+    favoriteIdeaBox(targetClass);
+  }
+
+
+  // else if (targetClass.className === 'white-star') {
+  //   targetClass.src = "assets/star-active.svg"
+  //   targetClass.classList.add('red-star')
+  //   targetClass.classList.remove('white-star')
+  // } else if (targetClass.className === 'red-star') {
+  //   targetClass.src = "assets/star.svg"
+  //   targetClass.classList.add('white-star')
+  //   targetClass.classList.remove('red-star')
+  // }
+}
+
+function favoriteIdeaBox(targetClass) {
+  if (targetClass.className === 'white-star') {
     targetClass.src = "assets/star-active.svg"
     targetClass.classList.add('red-star')
     targetClass.classList.remove('white-star')
-    // favoriteIdeaBox(event);
   } else if (targetClass.className === 'red-star') {
     targetClass.src = "assets/star.svg"
     targetClass.classList.add('white-star')
@@ -92,46 +105,3 @@ function deleteIdeaBox(event) {
     }
   }
 };
-//
-// && targetID === whiteImage
-// && targetID === redImage
-//
-// function favoriteIdeaBox(event) {
-//   var variable
-//   // having trouble discerning how to target the
-//   // class/id
-//
-//     if (star = false) {
-//       star = true;
-//       variable.classList.remove(white)
-//       variable.classList.add(red);
-//     } else if (star = true) {
-//       star = false;
-//       variable.classList.remove(red)
-//       variable.classList.add(white)
-//     }
-// }
-
-// function favoriteIdeaBox(event) {
-//   debugger
-//   if ()
-//
-//   // var whiteStarID = Number(event.target.id);
-//   // var redStarID = Number(event.target.id);
-//   // var whiteStar = document.getElementById(whiteStarID);
-//   // var redStar = document.getElementById(redStarID);
-//   // var whiteImage = document.querySelector(".white-star");
-//   // var redImage = document.querySelector(".red-star")
-//   // var whiteImage = event.target.className;
-//   // var redImage = event.target.className;
-//   // for (var i = 0; i < ideaList.length; i++) {
-//   //   if (whiteStarID === ideaList[i].id) {
-//       // document.getElementByID('white-star').src="assets/star-active.svg";
-//       whiteImage.classList.toggle('hidden');
-//       redImage.classList.toggle('hidden');
-      // ideaList[i].star = true;
-      //how do we get it to unfavor then?
-      //tried searching white-star through qSA and looping through node
-//     }
-//   }
-// }
