@@ -14,7 +14,7 @@ class Idea {
   deleteFromStorage(stringifiedList, ideaList) {
     localStorage.removeItem('storedIdeas');
     stringifiedList = JSON.stringify(ideaList);
-    localStorage.setItem('storedIdeas', stringifiedList)
+    localStorage.setItem('storedIdeas', stringifiedList);
   }
 
   updateIdea() {
@@ -23,17 +23,5 @@ class Idea {
     }else if (this.star === true) {
       this.star = false;
     }
-}
-    // targetClass = Number(event.target.id);
-    // var targetId = Number(targetClass.id);
-    // for (var i = 0; i < ideaList.length; i++) {
-    //   if(this.id === ideaList[i].id) {
-    //     if (this.star === true) {
-    //       deleteFromStorage(stringifiedList, ideaList);
-    //     }else if (this.star === false) {
-    //       deleteFromStorage(stringifiedList, ideaList);
-    //     }
-  //     }
-  //   }
-  // }
+  }
 };

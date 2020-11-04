@@ -1,7 +1,6 @@
 var title = document.querySelector('#title');
 var body = document.querySelector('#body');
 
-// var titleAndBody = document.querySelectorAll('.form-entries');
 var saveButton = document.querySelector('.save-button');
 var ideaSection = document.querySelector('.grid-item-3');
 var disableHover = document.querySelector('.disable-hover');
@@ -14,8 +13,6 @@ saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
 ideaSection.addEventListener('click', manageIdeaBox);
 window.addEventListener('load', getIdeaBox);
-var section = document.querySelector('section');
-section.addEventListener('load', manageStarDisplay);
 
 function enableButton() {
   if (title.value && body.value) {
@@ -24,15 +21,12 @@ function enableButton() {
   }
 };
 
-///WORKING FUNCTION///
-// LOOKING TO REFACTOR USING titleAndBody ONLY
 function clearEntries() {
   if (title.value && body.value) {
     title.value = null;
     body.value = null;
     saveButton.disabled = true;
     saveButton.classList.add('disable-button');
-    // possible add of "add('disable-button') function"?
   }
 };
 
@@ -77,23 +71,16 @@ function manageIdeaBox(event) {
 };
 
 function favoriteIdeaBox(targetClass) {
-    // var starTarget = Number(event.target.id);
-    // console.log('before if statement', targetClass);
   if (targetClass.className === 'white-star') {
-    // console.log('after if statement', targetClass);
-    // starTarget = true;
     targetClass.src = "assets/star-active.svg"
     targetClass.classList.add('red-star')
     targetClass.classList.remove('white-star')
-    starFavorite(targetClass);
-    // currentIdea.updateIdea(stringifiedList, ideaList);
+    favoriteStar(targetClass);
   } else if (targetClass.className === 'red-star') {
-    // starTarget = false;
     targetClass.src = "assets/star.svg"
     targetClass.classList.add('white-star')
     targetClass.classList.remove('red-star')
-    starFavorite(targetClass);
-    // currentIdea.updateIdea(stringifiedList, ideaList);
+    favoriteStar(targetClass);
   }
 };
 
@@ -110,7 +97,6 @@ function deleteIdeaBox(event) {
 };
 
 function getIdeaBox() {
-  // manageStarDisplay(event);
   if (localStorage.length > 0) {
     var retrieved = localStorage.getItem('storedIdeas');
     ideaList = JSON.parse(retrieved);
@@ -133,16 +119,9 @@ function getIdeaBox() {
       </article>`
     }
   }
-}
+};
 
-// function manageStarDisplay(event) {
-//   var targetClass = event.target;
-//   for (var i = 0; i < ideaList.length; i++) {
-// }
-
-
-function starFavorite(targetClass) {
-  // debugger
+function favoriteStar(targetClass) {
   for (var i = 0; i < ideaList.length; i++) {
     if (Number(targetClass.id) === ideaList[i].id) {
       ideaList[i].updateIdea();
@@ -150,21 +129,3 @@ function starFavorite(targetClass) {
     }
   }
 };
-
-function manageStarDisplay(event) {
-  console.log('WTF');
-  debugger
-  var target = event.target;
-  for (var i = 0; i < ideaList.length; i++) {
-    if (ideaList[i].star === true) {
-      // targetClass = document.getElementById(`${ideaList[i].id}`);
-      target[i].src = "assets/star-active.svg";
-      target[i].classList.add('red-star');
-      target[i].classList.remove('white-star');
-    }
-  }
-};
-// when favorited .star value assigned to true
-// red colored star persists
-// when unfavortied .star value assigned to false
-// white star persists
