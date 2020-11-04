@@ -75,18 +75,20 @@ function manageIdeaBox(event) {
 };
 
 function favoriteIdeaBox(targetClass) {
+    console.log('before if statement', targetClass);
   if (targetClass.className === 'white-star') {
+    console.log('after if statement', targetClass);
     targetClass.star = true;
     targetClass.src = "assets/star-active.svg"
     targetClass.classList.add('red-star')
     targetClass.classList.remove('white-star')
-    currentIdea.updateIdea(targetClass, ideaList);
+    currentIdea.updateIdea(stringifiedList, ideaList);
   } else if (targetClass.className === 'red-star') {
     targetClass.star = false;
     targetClass.src = "assets/star.svg"
     targetClass.classList.add('white-star')
     targetClass.classList.remove('red-star')
-    currentIdea.updateIdea(targetClass, ideaList);
+    currentIdea.updateIdea(stringifiedList, ideaList);
   }
 };
 
@@ -127,6 +129,14 @@ function getIdeaBox() {
   }
 }
 
+// function starFavorite(event) {
+//   for (var i = 0; i < ideaList.length; i++) {
+//     if (Number(event.target.id) === ideaList[i].id) {
+//       ideaList[i].updateIdea();
+//       deleteFromStorage();
+//     }
+//   }
+// })
 // when favorited .star value assigned to true
 // red colored star persists
 // when unfavortied .star value assigned to false
