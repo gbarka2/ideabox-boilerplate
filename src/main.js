@@ -14,7 +14,8 @@ saveButton.addEventListener('click', newIdeaCard);
 disableHover.addEventListener('mouseenter', enableButton);
 ideaSection.addEventListener('click', manageIdeaBox);
 window.addEventListener('load', getIdeaBox);
-
+var section = document.querySelector('section');
+section.addEventListener('load', manageStarDisplay);
 
 function enableButton() {
   if (title.value && body.value) {
@@ -109,7 +110,7 @@ function deleteIdeaBox(event) {
 };
 
 function getIdeaBox() {
-  onLoadStar();
+  // manageStarDisplay(event);
   if (localStorage.length > 0) {
     var retrieved = localStorage.getItem('storedIdeas');
     ideaList = JSON.parse(retrieved);
@@ -134,7 +135,14 @@ function getIdeaBox() {
   }
 }
 
+// function manageStarDisplay(event) {
+//   var targetClass = event.target;
+//   for (var i = 0; i < ideaList.length; i++) {
+// }
+
+
 function starFavorite(targetClass) {
+  // debugger
   for (var i = 0; i < ideaList.length; i++) {
     if (Number(targetClass.id) === ideaList[i].id) {
       ideaList[i].updateIdea();
@@ -143,14 +151,16 @@ function starFavorite(targetClass) {
   }
 };
 
-function onLoadStar() {
-  // var targetClass = event.target;
+function manageStarDisplay(event) {
+  console.log('WTF');
+  debugger
+  var target = event.target;
   for (var i = 0; i < ideaList.length; i++) {
     if (ideaList[i].star === true) {
-      var targetClass = document.getElementById(`${ideaList[i].id}`);
-      targetClass.src = "assets/star-active.svg"
-      targetClass.classList.add('red-star')
-      targetClass.classList.remove('white-star')
+      // targetClass = document.getElementById(`${ideaList[i].id}`);
+      target[i].src = "assets/star-active.svg";
+      target[i].classList.add('red-star');
+      target[i].classList.remove('white-star');
     }
   }
 };
