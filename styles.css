@@ -5,7 +5,6 @@
   grid-template-columns: 20% 80%;
   margin: 0;
   grid-template-rows: repeat(3, 20%);
-  /* grid-template-rows: 65% 35%; */
 }
 
 header {
@@ -201,7 +200,6 @@ p {
   padding: 0;
 }
 
-/* Font management */
 h1,
 h2,
 form,
@@ -214,10 +212,6 @@ form,
 
 .title-body>p {
   font-family: "Open Sans", sans-serif;
-}
-
-.hidden {
-  display: none !important;
 }
 
 .disable-button{
