@@ -14,10 +14,14 @@ class Idea {
   deleteFromStorage(stringifiedList, ideaList) {
     localStorage.removeItem('storedIdeas');
     stringifiedList = JSON.stringify(ideaList);
-    localStorage.setItem('storedIdeas', stringifiedList)
+    localStorage.setItem('storedIdeas', stringifiedList);
   }
 
   updateIdea() {
-
+    if (this.star === false) {
+      this.star = true;
+    }else if (this.star === true) {
+      this.star = false;
+    }
   }
 };
