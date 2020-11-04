@@ -109,6 +109,7 @@ function deleteIdeaBox(event) {
 };
 
 function getIdeaBox() {
+  onLoadStar();
   if (localStorage.length > 0) {
     var retrieved = localStorage.getItem('storedIdeas');
     ideaList = JSON.parse(retrieved);
@@ -142,11 +143,11 @@ function starFavorite(targetClass) {
   }
 };
 
-function onLoadStar(event) {
-  var targetClass = event.target;
+function onLoadStar() {
+  // var targetClass = event.target;
   for (var i = 0; i < ideaList.length; i++) {
     if (ideaList[i].star === true) {
-
+      var targetClass = document.getElementById(`${ideaList[i].id}`);
       targetClass.src = "assets/star-active.svg"
       targetClass.classList.add('red-star')
       targetClass.classList.remove('white-star')
