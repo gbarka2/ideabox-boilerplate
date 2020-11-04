@@ -47,6 +47,6 @@ Thank you in advance for your input!
 ​
 ###Contact
 Please follow any of us on github or to reach out about this or any other projects.
-- Cameron Aragon @gbarka2
-- Gary Barkauski @caragon4695
+- Cameron Aragon @caragon4695
+- Gary Barkauski @gbarka2
 - Gabrielle Joyce @gaj23  
