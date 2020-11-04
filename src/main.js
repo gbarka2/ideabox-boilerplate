@@ -15,6 +15,7 @@ disableHover.addEventListener('mouseenter', enableButton);
 ideaSection.addEventListener('click', manageIdeaBox);
 window.addEventListener('load', getIdeaBox);
 
+
 function enableButton() {
   if (title.value && body.value) {
     saveButton.disabled = false;
@@ -50,7 +51,7 @@ function newIdeaCard() {
     ideaSection.innerHTML += `
     <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-        <img src="assets/star.svg" class="white-star" alt="favorite star">
+        <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
         <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
       </div>
       <div class="title-body">
@@ -75,20 +76,23 @@ function manageIdeaBox(event) {
 };
 
 function favoriteIdeaBox(targetClass) {
-    console.log('before if statement', targetClass);
+    // var starTarget = Number(event.target.id);
+    // console.log('before if statement', targetClass);
   if (targetClass.className === 'white-star') {
-    console.log('after if statement', targetClass);
-    targetClass.star = true;
+    // console.log('after if statement', targetClass);
+    // starTarget = true;
     targetClass.src = "assets/star-active.svg"
     targetClass.classList.add('red-star')
     targetClass.classList.remove('white-star')
-    currentIdea.updateIdea(stringifiedList, ideaList);
+    starFavorite(targetClass);
+    // currentIdea.updateIdea(stringifiedList, ideaList);
   } else if (targetClass.className === 'red-star') {
-    targetClass.star = false;
+    // starTarget = false;
     targetClass.src = "assets/star.svg"
     targetClass.classList.add('white-star')
     targetClass.classList.remove('red-star')
-    currentIdea.updateIdea(stringifiedList, ideaList);
+    starFavorite(targetClass);
+    // currentIdea.updateIdea(stringifiedList, ideaList);
   }
 };
 
@@ -113,7 +117,7 @@ function getIdeaBox() {
       ideaSection.innerHTML += `
       <article class="idea-box" id="${ideaList[i].id}">
       <div class="icon-bar">
-      <img src="assets/star.svg" class="white-star" alt="favorite star">
+      <img src="assets/star.svg" class="white-star" id="${ideaList[i].id}" alt="favorite star">
       <img src="assets/delete.svg" class="delete-idea" id="${ideaList[i].id}" alt="delete idea">
       </div>
       <div class="title-body">
@@ -129,14 +133,26 @@ function getIdeaBox() {
   }
 }
 
-// function starFavorite(event) {
-//   for (var i = 0; i < ideaList.length; i++) {
-//     if (Number(event.target.id) === ideaList[i].id) {
-//       ideaList[i].updateIdea();
-//       deleteFromStorage();
-//     }
-//   }
-// })
+function starFavorite(targetClass) {
+  for (var i = 0; i < ideaList.length; i++) {
+    if (Number(targetClass.id) === ideaList[i].id) {
+      ideaList[i].updateIdea();
+      currentIdea.deleteFromStorage(stringifiedList, ideaList);
+    }
+  }
+};
+
+function onLoadStar(event) {
+  var targetClass = event.target;
+  for (var i = 0; i < ideaList.length; i++) {
+    if (ideaList[i].star === true) {
+
+      targetClass.src = "assets/star-active.svg"
+      targetClass.classList.add('red-star')
+      targetClass.classList.remove('white-star')
+    }
+  }
+};
 // when favorited .star value assigned to true
 // red colored star persists
 // when unfavortied .star value assigned to false

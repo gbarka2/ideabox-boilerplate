@@ -17,17 +17,23 @@ class Idea {
     localStorage.setItem('storedIdeas', stringifiedList)
   }
 
-  updateIdea(stringifiedList, ideaList) {
+  updateIdea() {
+    if (this.star === false) {
+      this.star = true;
+    }else if (this.star === true) {
+      this.star = false;
+    }
+}
     // targetClass = Number(event.target.id);
     // var targetId = Number(targetClass.id);
-    for (var i = 0; i < ideaList.length; i++) {
-      if(this.id === ideaList[i].id) {
-        if (this.star === true) {
-          deleteFromStorage(stringifiedList, ideaList);
-        }else if (this.star === false) {
-          deleteFromStorage(stringifiedList, ideaList);
-        }
-      }
-    }
-  }
+    // for (var i = 0; i < ideaList.length; i++) {
+    //   if(this.id === ideaList[i].id) {
+    //     if (this.star === true) {
+    //       deleteFromStorage(stringifiedList, ideaList);
+    //     }else if (this.star === false) {
+    //       deleteFromStorage(stringifiedList, ideaList);
+    //     }
+  //     }
+  //   }
+  // }
 };
